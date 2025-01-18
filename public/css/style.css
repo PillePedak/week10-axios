@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    color: #151515;
+}
+
+.container {
+    width: 75%;
+    text-align: center;
+    margin: 3rem auto;
+}
+
+/* Poster section */
+.movie-card {
+    margin-top: 5rem;
+    height: 800px;
+    text-align: center;
+}
+
+.movie-title {
+    text-transform: uppercase;
+}
+
+.movie-poster-container img {
+    margin-top: 2rem;
+    height: 500px;
+    max-width: 100%;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    animation: bounce-poster 1.5s ease-in-out forwards;
+}
+
+.movie-rating {
+    display: inline-block;
+    border: 1px solid #151515;
+    padding: 0.3rem;
+    border-radius: 5px;
+}
+
+.movie-duration {
+    margin-left: 1rem;
+    letter-spacing: 0.2rem;
+}
+
+.movie-duration:before {
+    content: "\2022";
+}
+
+.movie-info-quote {
+    color: #151515a4;
+    font-style: italic;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.movie-info-overview-title {
+    text-transform: capitalize;
+    letter-spacing: 0.1rem;
+}
+
+.movie-info-overview {
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.movie-info-actions {
+    font-size: 1.1rem;
+    position: relative;
+    top: 1rem;
+    text-align: center;
+}
+
+.movie-info-actions ul {
+    list-style: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    gap: 1rem;
+}
+
+.movie-info-actions ul li {
+    display: inline-block;
+    margin-right: 0.5rem;
+    margin-top: 0rem;
+    margin-bottom: 1rem;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: rgb(3, 37, 65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(50px);
+    animation: slide-up 1s ease-out forwards;
+}
+
+/* Ikoonide animatsiooni viivitus */
+.movie-info-actions ul li:nth-child(1) {
+    animation-delay: 1s;
+}
+
+.movie-info-actions ul li:nth-child(2) {
+    animation-delay: 2s;
+}
+
+.movie-info-actions ul li:nth-child(3) {
+    animation-delay: 3s;
+}
+
+.movie-info-actions ul li a {
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+/* Poster animatsioon */
+@keyframes bounce-poster {
+    0% {
+        transform: translateY(-200%);
+    }
+    50% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Ikoonide libisemine alt */
+@keyframes slide-up {
+    0% {
+        transform: translateY(50px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Footer fade-in */
+@keyframes fade-in-footer {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+footer {
+    margin-top: 2rem;
+    text-align: center;
+    color: #777;
+    animation: fade-in-footer 2s ease-out forwards;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    display: inline-block;
+    margin-top: 2rem; 
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fade-in-footer-text 3s ease-out forwards;
+}
+
+/* Ikoonide värvid */
+footer ul li a .fa-brands.fa-x-twitter {
+    color: #74C0FC; /* Helesinine */
+}
+
+footer ul li a .fa-brands.fa-instagram {
+    color: #ff80a6; /* Roosa */
+}
+
+footer ul li a .fa-brands.fa-square-facebook {
+    color: #005eff; /* Sinine */
+}
+
+footer ul li a {
+    color: #777;
+    font-weight: bold;
+    font-size: 1.3rem;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    color: #151515;
+}
+
+footer p {
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    color: #777;
+}
+
+@keyframes fade-in-footer-text {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+footer h3 {
+    font-weight: normal;
+    font-size: 1.4rem;
+    color: #151515;
+    margin-top: 2rem;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: blanchedalmond;
+    margin: 5% auto;
+    padding: 5rem;
+    width: 80%;
+    max-width: 600px;
+    height: auto;
+    animation: zoom-in 1s;
+    border-radius: 15px;
+    position: relative;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.movie-poster-modal {
+    width: 80%;
+    max-width: 500px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 1rem;
+}
+
+.movie-info-actions ul li a i {
+    color: red;
+}

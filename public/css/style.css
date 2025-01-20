@@ -6,6 +6,11 @@
     box-sizing: border-box;
 }
 
+.movie-data-list {
+    list-style: none;
+    line-height: 2rem;
+}
+
 html {
     font-family: 'Roboto', sans-serif;
     color: #151515;

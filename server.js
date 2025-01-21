@@ -87,9 +87,9 @@ app.post('/getmovie', (req, res) => {
 			? req.body.queryResult.parameters.movie
 			: '';
 
-	const reqUrl = encodeURI(
-		`https://www.omdbapi.com/?t=${movieToSearch}&apikey=cc6f9d1b`
-	);
+    const reqUrl = encodeURI(
+        `http://www.omdbapi.com/?t=${movieToSearch}&apikey=cc6f9d1b`
+    );
 	https.get(
 		reqUrl,
 		responseFromAPI => {

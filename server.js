@@ -1,7 +1,8 @@
 const express = require('express');
 const axios = require('axios');
 const http = require('http');
-const dialogflow = require('dialogflow');
+const dialogflow = require('@google-cloud/dialogflow');
+const sessionClient = new dialogflow.SessionsClient();
 const path = require('path');
 
 const app = express();
@@ -10,13 +11,6 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-// Dialogflow konfiguratsioon
-const sessionClient = new dialogflow.SessionsClient({
-  keyFilename: path.join(__dirname, 'config/your-key.json'), // Service account JSON faili tee
-});
-
-const projectId = 'your-project-id'; // Asenda oma Google Cloud projekti ID-ga
 
 // Avaleht
 app.get('/', (req, res) => {
@@ -93,32 +87,6 @@ app.post('/search', (req, res) => {
       res.render('search', { movieDetails: movieData });
     })
   );
-});
-
-// Dialogflow päring
-app.post('/dialogflow', async (req, res) => {
-  try {
-    const sessionId = req.body.sessionId || 'default-session';
-    const text = req.body.text || 'Hello!';
-
-    const sessionPath = sessionClient.sessionPath(projectId, sessionId);
-    const request = {
-      session: sessionPath,
-      queryInput: {
-        text: {
-          text: text,
-          languageCode: 'en', // Kasuta oma agendi keelekoodi
-        },
-      },
-    };
-
-    const [response] = await sessionClient.detectIntent(request);
-    const result = response.queryResult;
-    res.json({ message: result.fulfillmentText }); // Vastus agentilt
-  } catch (error) {
-    console.error('Dialogflow error:', error);
-    res.status(500).send('Internal Server Error');
-  }
 });
 
 // OMDB API päring

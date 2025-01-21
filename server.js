@@ -19,10 +19,10 @@ app.get('/', (req, res) => {
         let genres = '';
 
         data.genres.forEach(genre => {
-            genres = genres + `${genre.name},`;
+            genres = genres + `${genre.name} `;
+
         });
 
-        
         let genresUpdated = genres.replace(/,$/, '') + '.';
         moviePoster = `https://image.tmdb.org/t/p/w600_and_h900_bestv2${data.poster_path}`;
         console.log(genresUpdated);

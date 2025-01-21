@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-.bot-contaier {
+.chat-contaier {
     position: fixed;
     bottom: 0;
     right: 0;

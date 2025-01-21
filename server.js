@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
         });
 
         
-        let genresUpdated = genres.slice(0, -2) + '.';
+        let genresUpdated = genres.replace(/,$/, '') + '.';
         moviePoster = `https://image.tmdb.org/t/p/w600_and_h900_bestv2${data.poster_path}`;
         console.log(genresUpdated);
         let currentYear = new Date().getFullYear();

@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
         let genres = '';
 
         data.genres.forEach(genre => {
-            genres = genres + '${genre.name},' ;
+            genres = genres + `${genre.name},`;
         });
 
         
@@ -39,7 +39,7 @@ app.get('/search', (req, res) => {
 app.post('/search', (req, res) => {
     let userMovieTitle = req.body.movieTitle;
 
-    let movieUrl = '//https:api.themoviedb.org/3/search/movie?api_key=4ca94f8b470d7e34bd3f59c3914295c8&query=${userMovieTitle}';
+    let movieUrl = `https://api.themoviedb.org/3/search/movie?api_key=4ca94f8b470d7e34bd3f59c3914295c8&query=${userMovieTitle}`;
     let genresUrl = 'https://api.themoviedb.org/3/genre/movie/list?api_key=4ca94f8b470d7e34bd3f59c3914295c8&language=en-US';
     
     let endpoints = [movieUrl, genresUrl];
